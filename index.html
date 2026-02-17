@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rishabh & Shreya</title>
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* PHONE */
+.phone {
+  width: 430px;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* INTRO */
+.intro {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1.2s ease;
+}
+
+.intro.fade-out {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+.envelope-wrap {
+  position: relative;
+  width: 280px;
+}
+
+.envelope {
+  width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 52%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  cursor: pointer;
+}
+
+.intro p {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 16px;
+  letter-spacing: 1px;
+}
+
+/* INVITE */
+.invite {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
+  padding: 50px 22px;
+  text-align: center;
+}
+
+.invite.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TEXT */
+.cursive {
+  font-family: 'Great Vibes', cursive;
+}
+
+.hero-names {
+  font-size: 56px;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.hearts {
+  font-size: 24px;
+  margin-bottom: 26px;
+}
+
+/* IMAGE */
+.couple-img {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 50px;
+}
+
+/* FAMILY */
+.family {
+  font-size: 42px;
+}
+
+.family-sub {
+  font-size: 30px;
+  margin-bottom: 22px;
+}
+
+.invite-line {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.couple-names {
+  font-size: 46px;
+  margin-bottom: 60px;
+}
+
+/* EVENTS */
+.section {
+  margin: 70px 0;
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition: all 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.section img {
+  width: 100%;
+  margin-bottom: 26px;
+  border-radius: 4px;
+}
+
+.event-title {
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+
+/* ONE-LINER */
+.event-line {
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 0.6px;
+  margin-bottom: 14px;
+  color: rgba(0,0,0,0.75);
+}
+
+.event-details {
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 0.4px;
+}
+
+.event-details span {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* DIVIDER */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(0,0,0,0.2);
+  margin: 50px auto;
+}
+
+/* FOOTER */
+.footer {
+  margin: 90px 0 40px;
+}
+
+.footer .note {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.footer .credit {
+  margin-top: 26px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* GLITTER */
+.glitter {
+  position: fixed;
+  pointer-events: none;
+  font-size: 22px;
+  color: rgba(212,170,90,0.9);
+  animation: fade 1s ease-out forwards;
+}
+
+@keyframes fade {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.3) translateY(16px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <!-- INTRO -->
+  <div class="intro" id="intro">
+    <div>
+      <div class="envelope-wrap">
+        <img src="envelope.png" class="envelope">
+        <img src="logo.png" class="logo" id="openInvite">
+      </div>
+      <p>Click on the logo to view the invite</p>
+    </div>
+  </div>
+
+  <!-- MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- INVITE -->
+  <div class="invite" id="invite">
+
+    <div class="cursive hero-names">Rishabh & Shreya</div>
+    <div class="date">Feb 16 – 18, 2026</div>
+    <div class="cursive hearts">Two hearts, one love, and a lifetime of togetherness</div>
+
+    <img src="couple.jpg" class="couple-img">
+
+    <div class="cursive family">Surana & Gadiya</div>
+    <div class="cursive family-sub">family</div>
+
+    <div class="invite-line">
+      cordially invites you to join for the<br>
+      auspicious wedding ceremony of
+    </div>
+
+    <div class="cursive couple-names">Rishabh & Shreya</div>
+
+    <!-- EVENTS -->
+    <div class="section">
+      <img src="haldii.jpg">
+      <div class="event-title cursive">Haldi Ceremony</div>
+      <div class="event-line">Soaked in sunshine, sealed with love.</div>
+      <div class="event-details">Monday, 16th Feb, 2026<br>11:00 am onwards</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <img src="sangeet.jpg">
+      <div class="event-title cursive">The Winter Flea ✨</div>
+      <div class="event-line">An evening dressed in music, movement, and magic.</div>
+      <div class="event-details">
+        Monday, 16th Feb, 2026<br>7:00 pm onwards
+        <span>Dress Code — Tux & Indo-Western</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <img src="sajjan.jpg">
+      <div class="event-title cursive">Rajasthani Brunch</div>
+      <div class="event-line">A leisurely morning of flavours, stories, and togetherness.</div>
+      <div class="event-details">
+        Tuesday, 17th Feb, 2026<br>11:00 am onwards
+        <span>Dress Code — Traditionals</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <img src="varmala.jpg">
+      <div class="event-title cursive">The Royal Varmala</div>
+      <div class="event-line">A royal promise, witnessed by all.</div>
+      <div class="event-details">
+        Baarat — 4:00 pm<br>
+        Varmala — 7:30 pm<br>
+        Reception — 8:30 pm
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <img src="phere.jpg">
+      <div class="event-title cursive">#RishtaPakka</div>
+      <div class="event-line">Seven promises, one lifetime.</div>
+      <div class="event-details">
+        Wednesday, 18th Feb, 2026<br>
+        Phere — 8:00 am onwards
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="cursive note">We can’t wait to celebrate the most special days of our lives with you.</div>
+      <div class="credit">Designed & Conceptualised by<br><strong>YellowLines By Shreyaa</strong></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const openInvite = document.getElementById("openInvite");
+const intro = document.getElementById("intro");
+const invite = document.getElementById("invite");
+const music = document.getElementById("bgMusic");
+
+openInvite.onclick = () => {
+  intro.classList.add("fade-out");
+  setTimeout(() => {
+    intro.style.display = "none";
+    invite.classList.add("show");
+    music.play();
+  }, 1200);
+};
+
+const sections = document.querySelectorAll(".section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle("visible", entry.isIntersecting);
+  });
+}, { threshold: 0.3 });
+
+sections.forEach(sec => observer.observe(sec));
+
+let last = 0;
+function createGlitter(x,y){
+  const now = Date.now();
+  if(now - last < 60) return;
+  last = now;
+  const g = document.createElement("div");
+  g.className = "glitter";
+  g.textContent = "✦";
+  g.style.left = x + "px";
+  g.style.top = y + "px";
+  document.body.appendChild(g);
+  setTimeout(()=>g.remove(),1000);
+}
+document.addEventListener("mousemove",e=>createGlitter(e.clientX,e.clientY));
+document.addEventListener("touchmove",e=>createGlitter(e.touches[0].clientX,e.touches[0].clientY));
+</script>
+
+</body>
+</html>
